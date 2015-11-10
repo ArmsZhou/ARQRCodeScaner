@@ -298,6 +298,7 @@
 				EDA6F8231BF1D4A100FD1CF3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
