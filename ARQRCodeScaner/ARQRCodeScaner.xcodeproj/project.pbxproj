@@ -13,6 +13,11 @@
 		EDA6F8181BF1D4A100FD1CF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDA6F8161BF1D4A100FD1CF3 /* Main.storyboard */; };
 		EDA6F81A1BF1D4A100FD1CF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDA6F8191BF1D4A100FD1CF3 /* Assets.xcassets */; };
 		EDA6F81D1BF1D4A100FD1CF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDA6F81B1BF1D4A100FD1CF3 /* LaunchScreen.storyboard */; };
+		EDA6F8361BF1E27200FD1CF3 /* notice.wav in Resources */ = {isa = PBXBuildFile; fileRef = EDA6F8321BF1E27200FD1CF3 /* notice.wav */; };
+		EDA6F8371BF1E27200FD1CF3 /* scanLine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDA6F8331BF1E27200FD1CF3 /* scanLine@2x.png */; };
+		EDA6F8381BF1E27200FD1CF3 /* scanLine@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDA6F8341BF1E27200FD1CF3 /* scanLine@3x.png */; };
+		EDA6F8391BF1E27200FD1CF3 /* scanscanBg.png in Resources */ = {isa = PBXBuildFile; fileRef = EDA6F8351BF1E27200FD1CF3 /* scanscanBg.png */; };
+		EDA6F83C1BF1E2B200FD1CF3 /* ARQRCodeScanerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA6F83B1BF1E2B200FD1CF3 /* ARQRCodeScanerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,12 @@
 		EDA6F8191BF1D4A100FD1CF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EDA6F81C1BF1D4A100FD1CF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EDA6F81E1BF1D4A100FD1CF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDA6F8321BF1E27200FD1CF3 /* notice.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = notice.wav; sourceTree = "<group>"; };
+		EDA6F8331BF1E27200FD1CF3 /* scanLine@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scanLine@2x.png"; sourceTree = "<group>"; };
+		EDA6F8341BF1E27200FD1CF3 /* scanLine@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scanLine@3x.png"; sourceTree = "<group>"; };
+		EDA6F8351BF1E27200FD1CF3 /* scanscanBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scanscanBg.png; sourceTree = "<group>"; };
+		EDA6F83A1BF1E2B200FD1CF3 /* ARQRCodeScanerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARQRCodeScanerViewController.h; sourceTree = "<group>"; };
+		EDA6F83B1BF1E2B200FD1CF3 /* ARQRCodeScanerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARQRCodeScanerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +69,7 @@
 		EDA6F80C1BF1D4A100FD1CF3 /* ARQRCodeScaner */ = {
 			isa = PBXGroup;
 			children = (
+				EDA6F8261BF1DF9900FD1CF3 /* ARQRCodeScanerSource */,
 				EDA6F8101BF1D4A100FD1CF3 /* AppDelegate.h */,
 				EDA6F8111BF1D4A100FD1CF3 /* AppDelegate.m */,
 				EDA6F8131BF1D4A100FD1CF3 /* ViewController.h */,
@@ -77,6 +89,27 @@
 				EDA6F80E1BF1D4A100FD1CF3 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EDA6F8261BF1DF9900FD1CF3 /* ARQRCodeScanerSource */ = {
+			isa = PBXGroup;
+			children = (
+				EDA6F8311BF1E27200FD1CF3 /* Resource */,
+				EDA6F83A1BF1E2B200FD1CF3 /* ARQRCodeScanerViewController.h */,
+				EDA6F83B1BF1E2B200FD1CF3 /* ARQRCodeScanerViewController.m */,
+			);
+			path = ARQRCodeScanerSource;
+			sourceTree = "<group>";
+		};
+		EDA6F8311BF1E27200FD1CF3 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				EDA6F8321BF1E27200FD1CF3 /* notice.wav */,
+				EDA6F8331BF1E27200FD1CF3 /* scanLine@2x.png */,
+				EDA6F8341BF1E27200FD1CF3 /* scanLine@3x.png */,
+				EDA6F8351BF1E27200FD1CF3 /* scanscanBg.png */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +169,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDA6F8361BF1E27200FD1CF3 /* notice.wav in Resources */,
 				EDA6F81D1BF1D4A100FD1CF3 /* LaunchScreen.storyboard in Resources */,
+				EDA6F8391BF1E27200FD1CF3 /* scanscanBg.png in Resources */,
+				EDA6F8381BF1E27200FD1CF3 /* scanLine@3x.png in Resources */,
 				EDA6F81A1BF1D4A100FD1CF3 /* Assets.xcassets in Resources */,
+				EDA6F8371BF1E27200FD1CF3 /* scanLine@2x.png in Resources */,
 				EDA6F8181BF1D4A100FD1CF3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,6 +187,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDA6F8151BF1D4A100FD1CF3 /* ViewController.m in Sources */,
+				EDA6F83C1BF1E2B200FD1CF3 /* ARQRCodeScanerViewController.m in Sources */,
 				EDA6F8121BF1D4A100FD1CF3 /* AppDelegate.m in Sources */,
 				EDA6F80F1BF1D4A100FD1CF3 /* main.m in Sources */,
 			);
