@@ -23,7 +23,9 @@
 #define ARMaskViewAlpha  0.6
 #define ARMaskViewColor  [UIColor darkGrayColor]
 
-@interface ARQRCodeScanerViewController ()<AVCaptureMetadataOutputObjectsDelegate>
+#define ARScanDuration   0.75
+
+@interface ARQRCodeScanerViewController ()<AVCaptureMetadataOutputObjectsDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIAlertViewDelegate>
 
 /**
  *  视图动画
@@ -38,10 +40,12 @@
  *  Capture
  */
 @property (nonatomic, strong) AVCaptureSession *session;
+@property (nonatomic, strong) CIDetector *detector;
 
 /**
  *  状态
  */
+@property (nonatomic, assign) BOOL isScaning;
 @property (nonatomic, assign) BOOL isScanAnimated;
 
 @end
@@ -56,11 +60,13 @@
     self.title = @"二维码扫描";
     self.view.backgroundColor = [UIColor whiteColor];
     
-    UIBarButtonItem * rbbItem = [[UIBarButtonItem alloc]initWithTitle:@"相册" style:UIBarButtonItemStyleDone target:self action:@selector(alumbBtnEvent)];
-    self.navigationItem.rightBarButtonItem = rbbItem;
-    
     UIBarButtonItem * lbbItem = [[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStyleDone target:self action:@selector(backButtonEvent)];
     self.navigationItem.leftBarButtonItem = lbbItem;
+    
+    if (AR_IS_IOS8) {
+        UIBarButtonItem * rbbItem = [[UIBarButtonItem alloc]initWithTitle:@"相册" style:UIBarButtonItemStyleDone target:self action:@selector(alumbBtnEvent)];
+        self.navigationItem.rightBarButtonItem = rbbItem;
+    }
     
     [self initUI];
     [self initDevice];
@@ -114,30 +120,89 @@
         
         NSString *scanResult = metadataObject.stringValue;
         [self playSound];
-        [self showMessage:scanResult];
+        [self showMessageWithTitle:@"扫描结果" Message:scanResult];
     }
 
 }
 
+#pragma mark UIImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
+    if (!image){
+        image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    }
+    
+    NSArray *features = [_detector featuresInImage:[CIImage imageWithCGImage:image.CGImage]];
+    
+    [picker dismissViewControllerAnimated:YES completion:^{
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+        
+        if (features.count > 0) {
+            CIQRCodeFeature *feature = [features objectAtIndex:0];
+            NSString *scannedResult = feature.messageString;
+            [self playSound];
+            [self showMessageWithTitle:@"扫描结果" Message:scannedResult];
+        }else{
+            [self showMessageWithTitle:@"提示" Message:@"该图片没有包含一个二维码!"];
+        }
+    }];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissViewControllerAnimated:YES completion:^{
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+    }];
+}
 #pragma mark - event response
 - (void)startScan
 {
-    [_session startRunning];
-    
-    _isScanAnimated = YES;
-    [self loopScanLineAnimation];
+    if (_isScanAnimated) {
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(ARScanDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
+            [_session startRunning];
+            _isScaning = YES;
+            [self loopScanLineAnimation];
+            
+        });
+        
+    }else{
+        
+        [_session startRunning];
+        _isScaning = YES;
+        [self loopScanLineAnimation];
+    }
 }
 
 - (void)stopScan
 {
     [_session stopRunning];
     
-    _isScanAnimated = NO;
+    _isScaning = NO;
 }
 
 - (void)alumbBtnEvent
 {
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"设备不支持访问相册，请在设置->隐私->照片中进行设置！" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+        
+        return;
+    }
     
+    _detector = [CIDetector detectorOfType:CIDetectorTypeQRCode context:nil options:@{ CIDetectorAccuracy : CIDetectorAccuracyHigh }];
+    
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    imagePicker.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeSavedPhotosAlbum];
+    imagePicker.allowsEditing = NO;
+    imagePicker.delegate = self;
+    [self presentViewController:imagePicker animated:YES completion:^{
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
+    }];
+
 }
 
 - (void)backButtonEvent
@@ -205,7 +270,7 @@
 - (UIImageView *)scanlineView
 {
     if (!_scanlineView) {
-        _scanlineView = [[UIImageView alloc] initWithFrame:CGRectMake(ARScanAreaLeft, ARScanAreaTop, ARScanAreaWidth, 9)];
+        _scanlineView = [[UIImageView alloc] initWithFrame:CGRectMake(ARScanAreaLeft, ARScanAreaTop, ARScanAreaWidth, 3)];
         [_scanlineView setImage:[UIImage imageNamed:@"scanLine"]];
     }
     
@@ -251,11 +316,14 @@
 
 - (void)loopScanLineAnimation
 {
-    _scanlineView.frame = CGRectMake(ARScanAreaLeft, ARScanAreaTop, ARScanAreaWidth, 9);
-    [UIView animateWithDuration:1.5 animations:^{
-        _scanlineView.frame = CGRectMake(ARScanAreaLeft, ARScanAreaTop + ARScanAreaHeight - 9, ARScanAreaWidth, 9);
+    _isScanAnimated = YES;
+    _scanlineView.frame = CGRectMake(ARScanAreaLeft, ARScanAreaTop, ARScanAreaWidth, CGRectGetHeight(_scanlineView.frame));
+    [UIView animateWithDuration:ARScanDuration animations:^{
+        _scanlineView.frame = CGRectMake(ARScanAreaLeft, ARScanAreaTop + ARScanAreaHeight - CGRectGetHeight(_scanlineView.frame), ARScanAreaWidth, CGRectGetHeight(_scanlineView.frame));
     } completion:^(BOOL finished) {
-        if (_isScanAnimated) {
+        
+        _isScanAnimated = NO;
+        if (_isScaning) {
             [self loopScanLineAnimation];
         }
     }];
@@ -346,9 +414,9 @@
     return CGRectMake(x, y, width, height);
 }
 
-- (void)showMessage:(NSString *)result
+- (void)showMessageWithTitle:(NSString *)title Message:(NSString *)message
 {
-    UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"扫描结果" message:result delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+    UIAlertView *alter = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
     [alter show];
     
     [self stopScan];

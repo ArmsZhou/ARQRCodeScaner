@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		ED9D351E1BF3365A00A7C997 /* lightNormal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED9D351C1BF3365A00A7C997 /* lightNormal@2x.png */; };
-		ED9D351F1BF3365A00A7C997 /* lightSelect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED9D351D1BF3365A00A7C997 /* lightSelect@2x.png */; };
+		ED9D351E1BF3365A00A7C997 /* lightSelect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED9D351C1BF3365A00A7C997 /* lightSelect@2x.png */; };
+		ED9D351F1BF3365A00A7C997 /* lightNormal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED9D351D1BF3365A00A7C997 /* lightNormal@2x.png */; };
 		EDA6F80F1BF1D4A100FD1CF3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA6F80E1BF1D4A100FD1CF3 /* main.m */; };
 		EDA6F8121BF1D4A100FD1CF3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA6F8111BF1D4A100FD1CF3 /* AppDelegate.m */; };
 		EDA6F8151BF1D4A100FD1CF3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA6F8141BF1D4A100FD1CF3 /* ViewController.m */; };
@@ -23,8 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		ED9D351C1BF3365A00A7C997 /* lightNormal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lightNormal@2x.png"; sourceTree = "<group>"; };
-		ED9D351D1BF3365A00A7C997 /* lightSelect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lightSelect@2x.png"; sourceTree = "<group>"; };
+		ED9D351C1BF3365A00A7C997 /* lightSelect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lightSelect@2x.png"; sourceTree = "<group>"; };
+		ED9D351D1BF3365A00A7C997 /* lightNormal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lightNormal@2x.png"; sourceTree = "<group>"; };
 		EDA6F80A1BF1D4A100FD1CF3 /* ARQRCodeScaner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARQRCodeScaner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDA6F80E1BF1D4A100FD1CF3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EDA6F8101BF1D4A100FD1CF3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -112,8 +112,8 @@
 				EDA6F8331BF1E27200FD1CF3 /* scanLine@2x.png */,
 				EDA6F8341BF1E27200FD1CF3 /* scanLine@3x.png */,
 				EDA6F8351BF1E27200FD1CF3 /* scanscanBg@2x.png */,
-				ED9D351C1BF3365A00A7C997 /* lightNormal@2x.png */,
-				ED9D351D1BF3365A00A7C997 /* lightSelect@2x.png */,
+				ED9D351C1BF3365A00A7C997 /* lightSelect@2x.png */,
+				ED9D351D1BF3365A00A7C997 /* lightNormal@2x.png */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -175,8 +175,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED9D351E1BF3365A00A7C997 /* lightNormal@2x.png in Resources */,
-				ED9D351F1BF3365A00A7C997 /* lightSelect@2x.png in Resources */,
+				ED9D351E1BF3365A00A7C997 /* lightSelect@2x.png in Resources */,
+				ED9D351F1BF3365A00A7C997 /* lightNormal@2x.png in Resources */,
 				EDA6F8361BF1E27200FD1CF3 /* notice.wav in Resources */,
 				EDA6F81D1BF1D4A100FD1CF3 /* LaunchScreen.storyboard in Resources */,
 				EDA6F8391BF1E27200FD1CF3 /* scanscanBg@2x.png in Resources */,
