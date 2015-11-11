@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED9D351E1BF3365A00A7C997 /* lightNormal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED9D351C1BF3365A00A7C997 /* lightNormal@2x.png */; };
+		ED9D351F1BF3365A00A7C997 /* lightSelect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED9D351D1BF3365A00A7C997 /* lightSelect@2x.png */; };
 		EDA6F80F1BF1D4A100FD1CF3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA6F80E1BF1D4A100FD1CF3 /* main.m */; };
 		EDA6F8121BF1D4A100FD1CF3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA6F8111BF1D4A100FD1CF3 /* AppDelegate.m */; };
 		EDA6F8151BF1D4A100FD1CF3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA6F8141BF1D4A100FD1CF3 /* ViewController.m */; };
@@ -16,11 +18,13 @@
 		EDA6F8361BF1E27200FD1CF3 /* notice.wav in Resources */ = {isa = PBXBuildFile; fileRef = EDA6F8321BF1E27200FD1CF3 /* notice.wav */; };
 		EDA6F8371BF1E27200FD1CF3 /* scanLine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDA6F8331BF1E27200FD1CF3 /* scanLine@2x.png */; };
 		EDA6F8381BF1E27200FD1CF3 /* scanLine@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDA6F8341BF1E27200FD1CF3 /* scanLine@3x.png */; };
-		EDA6F8391BF1E27200FD1CF3 /* scanscanBg.png in Resources */ = {isa = PBXBuildFile; fileRef = EDA6F8351BF1E27200FD1CF3 /* scanscanBg.png */; };
+		EDA6F8391BF1E27200FD1CF3 /* scanscanBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EDA6F8351BF1E27200FD1CF3 /* scanscanBg@2x.png */; };
 		EDA6F83C1BF1E2B200FD1CF3 /* ARQRCodeScanerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDA6F83B1BF1E2B200FD1CF3 /* ARQRCodeScanerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ED9D351C1BF3365A00A7C997 /* lightNormal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lightNormal@2x.png"; sourceTree = "<group>"; };
+		ED9D351D1BF3365A00A7C997 /* lightSelect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lightSelect@2x.png"; sourceTree = "<group>"; };
 		EDA6F80A1BF1D4A100FD1CF3 /* ARQRCodeScaner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARQRCodeScaner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDA6F80E1BF1D4A100FD1CF3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EDA6F8101BF1D4A100FD1CF3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -34,7 +38,7 @@
 		EDA6F8321BF1E27200FD1CF3 /* notice.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = notice.wav; sourceTree = "<group>"; };
 		EDA6F8331BF1E27200FD1CF3 /* scanLine@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scanLine@2x.png"; sourceTree = "<group>"; };
 		EDA6F8341BF1E27200FD1CF3 /* scanLine@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scanLine@3x.png"; sourceTree = "<group>"; };
-		EDA6F8351BF1E27200FD1CF3 /* scanscanBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scanscanBg.png; sourceTree = "<group>"; };
+		EDA6F8351BF1E27200FD1CF3 /* scanscanBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scanscanBg@2x.png"; sourceTree = "<group>"; };
 		EDA6F83A1BF1E2B200FD1CF3 /* ARQRCodeScanerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARQRCodeScanerViewController.h; sourceTree = "<group>"; };
 		EDA6F83B1BF1E2B200FD1CF3 /* ARQRCodeScanerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARQRCodeScanerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,7 +111,9 @@
 				EDA6F8321BF1E27200FD1CF3 /* notice.wav */,
 				EDA6F8331BF1E27200FD1CF3 /* scanLine@2x.png */,
 				EDA6F8341BF1E27200FD1CF3 /* scanLine@3x.png */,
-				EDA6F8351BF1E27200FD1CF3 /* scanscanBg.png */,
+				EDA6F8351BF1E27200FD1CF3 /* scanscanBg@2x.png */,
+				ED9D351C1BF3365A00A7C997 /* lightNormal@2x.png */,
+				ED9D351D1BF3365A00A7C997 /* lightSelect@2x.png */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -169,9 +175,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED9D351E1BF3365A00A7C997 /* lightNormal@2x.png in Resources */,
+				ED9D351F1BF3365A00A7C997 /* lightSelect@2x.png in Resources */,
 				EDA6F8361BF1E27200FD1CF3 /* notice.wav in Resources */,
 				EDA6F81D1BF1D4A100FD1CF3 /* LaunchScreen.storyboard in Resources */,
-				EDA6F8391BF1E27200FD1CF3 /* scanscanBg.png in Resources */,
+				EDA6F8391BF1E27200FD1CF3 /* scanscanBg@2x.png in Resources */,
 				EDA6F8381BF1E27200FD1CF3 /* scanLine@3x.png in Resources */,
 				EDA6F81A1BF1D4A100FD1CF3 /* Assets.xcassets in Resources */,
 				EDA6F8371BF1E27200FD1CF3 /* scanLine@2x.png in Resources */,
@@ -251,7 +259,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -288,7 +296,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

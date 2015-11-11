@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ARQRCodeScanerViewController.h"
 
 @interface ViewController ()
 
@@ -17,6 +18,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+}
+- (IBAction)click:(id)sender {
+    
+    ARQRCodeScanerViewController * sqVC = [[ARQRCodeScanerViewController alloc]init];
+    UINavigationController * nVC = [[UINavigationController alloc]initWithRootViewController:sqVC];
+    [self presentViewController:nVC animated:YES completion:^{
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
